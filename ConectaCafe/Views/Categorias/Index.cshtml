@@ -36,10 +36,10 @@
                                     <td>
                                         <a asp-action="Edit" asp-route-id="@item.Id" title="Alterar">
                                             <i class="material-icons me-2">edit</i>
-                                        </a> 
+                                        </a>
                                         <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes">
                                             <i class="material-icons me-2">search</i>
-                                        </a> 
+                                        </a>
                                         <a asp-action="Delete" asp-route-id="@item.Id" title="Excluir">
                                             <i class="material-icons me-2">delete</i>
                                         </a>
@@ -54,3 +54,19 @@
     </div>
 </div>
 
+@section Scripts
+{
+    <script>
+        let datatable = new DataTable('#dataTable', {
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/2.0.3/i18n/pt-BR.json'
+            },
+            initComplete: function (settings, json) {
+                document.querySelector('.dt-length').classList.add('text-xs');
+                document.querySelector('.dt-search').classList.add('text-xs');
+                document.querySelector('.dt-info').classList.add('text-xs');
+                document.querySelector('.dt-paging').classList.add('text-xs');
+            }
+        });
+    </script>
+}
